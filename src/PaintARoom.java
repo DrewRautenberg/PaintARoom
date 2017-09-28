@@ -39,8 +39,8 @@ public class PaintARoom {
         //---------------------------------------------------------- PROCESSING
         // NOTE:  Uncomment next 3 lines after their methods are written
 
-//        totalArea = findWallArea();                  // incl. doors & windows
-//        winDoorArea = findWinDoorArea(AVE_DOOR_AREA, AVE_WINDOW_AREA);
+        totalArea = findWallArea();                  // incl. doors & windows
+        winDoorArea = findWinDoorArea(AVE_DOOR_AREA, AVE_WINDOW_AREA);
 //        paintableArea = totalArea - winDoorArea;
 
         // NOTE:  Uncomment next line after you've written the method        
@@ -59,41 +59,31 @@ public class PaintARoom {
     // This method returns the room's total wall area (in square feet)
     //      without considering windows or doors.
     public static int findWallArea(){
-        String userString = JOptionPane.showInputDialog
-                ("Enter room height (8 is normal)?");
+        String userString = JOptionPane.showInputDialog("Enter room height (8 is normal)?");
         int height = Integer.parseInt(userString);
+        int length = Integer.parseInt(JOptionPane.showInputDialog("Enter length of room (a whole number)?"));
+        int width = Integer.parseInt(JOptionPane.showInputDialog("Enter width of room (a whole number)?"));
 
-        int length = Integer.parseInt(JOptionPane.showInputDialog
-                ("Enter length of room (a whole number)?"));
-        int width = Integer.parseInt(JOptionPane.showInputDialog
-                ("Enter width of room (a whole number)?"));
-
-        // >>>>> WRITE CODE HERE
-
-
-
-
-
-        return 0;                       // DUMMY VALUE TO MAKE CODE EXECUTABLE
-        // - FIX THIS AS PROGRAM IS DEVELOPED
+        int area;
+        area = 2*((length*height)+(width*height));
+        return area;
     }
     //*************************************************************************
     // This method finds the room's total square footage for all the doors
     //      and windows (based on aveage sizes for doors/windows).
     public static int findWinDoorArea(int aveDoorArea, int avewindowArea){
-
         int numDoors = Integer.parseInt(JOptionPane.showInputDialog
                 ("Enter number of doors"));
         int numWindows = Integer.parseInt(JOptionPane.showInputDialog
                 ("Enter number of windows"));
 
-        // >>>>> WRITE CODE HERE
-
-
-
-
-        return 0;                       // DUMMY VALUE TO MAKE CODE EXECUTABLE
-        // - FIX THIS AS PROGRAM IS DEVELOPED
+        int doorArea;
+        int winArea;
+        int total;
+        doorArea = numDoors*aveDoorArea;
+        winArea=numWindows*avewindowArea;
+        total = doorArea+winArea;
+        return total ;
     }
     //*************************************************************************
     // This method finds the total number of gallons needed to paint the given
