@@ -12,10 +12,7 @@
  *      - doors/windows/floor/ceiling are NOT being painted
  * PROCESSING:  Do the algorithm in steps by calling methods to "do the work",
  *      rather than doing one big formula (for now).
- * ToDo:  Program currently executes.  Use incremental development to complete
- *      the program to make it run correctly.
  *****************************************************************************/
-
 
 import javax.swing.JOptionPane;
 
@@ -28,7 +25,7 @@ public class PaintARoom {
         final int SQ_FT_PER_GALLON = 350;    // for 1 coat
         final int NUM_COATS = 2;             // the default
         final int AVE_DOOR_AREA = 21;        // 7' x 3' on ave. (incl. molding)
-        final int AVE_WINDOW_AREA = 9;       // 3' x 3' on ave. (incl. modling)
+        final int AVE_WINDOW_AREA = 9;       // 3' x 3' on ave. (incl. molding)
 
         //----------------------------------- OUTPUT VARIABLES FOR CALCULATIONS
         int totalArea;
@@ -37,11 +34,9 @@ public class PaintARoom {
         int gallons;
 
         //---------------------------------------------------------- PROCESSING
-
         totalArea = findWallArea();                  // incl. doors & windows
         winDoorArea = findWinDoorArea(AVE_DOOR_AREA, AVE_WINDOW_AREA);
         paintableArea = totalArea - winDoorArea;
-
         gallons = findGallonsNeeded(paintableArea, NUM_COATS, SQ_FT_PER_GALLON);
 
         //-------------------------------------------------------------- OUTPUT
@@ -69,8 +64,8 @@ public class PaintARoom {
 
     //*************************************************************************
     // This method finds the room's total square footage for all the doors
-    //      and windows (based on aveage sizes for doors/windows).
-    private static int findWinDoorArea(int aveDoorArea, int avewindowArea) {
+    //      and windows (based on average sizes for doors/windows).
+    private static int findWinDoorArea(int aveDoorArea, int aveWindowArea) {
         int numDoors = Integer.parseInt(JOptionPane.showInputDialog
                 ("Enter number of doors"));
         int numWindows = Integer.parseInt(JOptionPane.showInputDialog
@@ -80,7 +75,7 @@ public class PaintARoom {
         int winArea;
         int total;
         doorArea = numDoors * aveDoorArea;
-        winArea = numWindows * avewindowArea;
+        winArea = numWindows * aveWindowArea;
         total = doorArea + winArea;
         return total;
     }
