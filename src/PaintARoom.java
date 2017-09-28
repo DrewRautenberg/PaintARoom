@@ -41,15 +41,15 @@ public class PaintARoom {
 
         totalArea = findWallArea();                  // incl. doors & windows
         winDoorArea = findWinDoorArea(AVE_DOOR_AREA, AVE_WINDOW_AREA);
-//        paintableArea = totalArea - winDoorArea;
+        paintableArea = totalArea - winDoorArea;
 
         // NOTE:  Uncomment next line after you've written the method        
-//        gallons = findGallonsNeeded(paintableArea,NUM_COATS,SQ_FT_PER_GALLON);
+        gallons = findGallonsNeeded(paintableArea,NUM_COATS,SQ_FT_PER_GALLON);
 
         //-------------------------------------------------------------- OUTPUT
         // NOTE:  Uncomment next line once gallons has a value
-//        System.out.println("Need " + gallons + " gallons of paint for " +
-//              NUM_COATS + " coats");
+        System.out.println("Need " + gallons + " gallons of paint for " +
+              NUM_COATS + " coats");
 
         //---------------------------------------------------------------------
         System.out.println("\nTHE END");
@@ -89,12 +89,22 @@ public class PaintARoom {
     // This method finds the total number of gallons needed to paint the given
     // room (based on data user provided and constant values assumed in this
     // program
+    static int findGallonsNeeded(int area,int coats,int sqFtperGallon){
+        int totalGallons;
+        int areaWithCoats;
+        double numGallons;
 
-    // >>>>> WRITE CODE HERE FOR THE MISSING METHOD, findGallonsNeeded
+        areaWithCoats = area*coats;
+        numGallons=areaWithCoats/sqFtperGallon;
 
-
-
-
+        if (numGallons%1==0){
+            totalGallons=(int)numGallons;
+        }
+        else {
+            totalGallons=(int)numGallons+1;
+        }
+        return totalGallons;
+    }
 
     // HINT:  If there's a remainder when dividing by SQ_FT_PER_GALLON, then
     //      add another gallon since you can't buy a partial gallon
