@@ -37,7 +37,6 @@ public class PaintARoom {
         int gallons;
 
         //---------------------------------------------------------- PROCESSING
-        // NOTE:  Uncomment next 3 lines after their methods are written
 
         totalArea = findWallArea();                  // incl. doors & windows
         winDoorArea = findWinDoorArea(AVE_DOOR_AREA, AVE_WINDOW_AREA);
@@ -58,7 +57,7 @@ public class PaintARoom {
     //*************************************************************************
     // This method returns the room's total wall area (in square feet)
     //      without considering windows or doors.
-    public static int findWallArea(){
+    private static int findWallArea(){
         String userString = JOptionPane.showInputDialog("Enter room height (8 is normal)?");
         int height = Integer.parseInt(userString);
         int length = Integer.parseInt(JOptionPane.showInputDialog("Enter length of room (a whole number)?"));
@@ -71,7 +70,7 @@ public class PaintARoom {
     //*************************************************************************
     // This method finds the room's total square footage for all the doors
     //      and windows (based on aveage sizes for doors/windows).
-    public static int findWinDoorArea(int aveDoorArea, int avewindowArea){
+    private static int findWinDoorArea(int aveDoorArea, int avewindowArea){
         int numDoors = Integer.parseInt(JOptionPane.showInputDialog
                 ("Enter number of doors"));
         int numWindows = Integer.parseInt(JOptionPane.showInputDialog
@@ -89,7 +88,7 @@ public class PaintARoom {
     // This method finds the total number of gallons needed to paint the given
     // room (based on data user provided and constant values assumed in this
     // program
-    static int findGallonsNeeded(int area,int coats,int sqFtperGallon){
+    private static int findGallonsNeeded(int area,int coats,int sqFtperGallon){
         int totalGallons;
         int areaWithCoats;
         double numGallons;
